@@ -1,0 +1,20 @@
+#Terraform attempt
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - bash: terraform init
+    displayName: 'TF Init'
+
+  - bash: terraform plan
+    displayName: 'TF Plan'
+
+  - bash: terraform apply -auto-approve
+    displayName: 'TF Apply'
+
+  - bash: terraform destroy -auto-approve
+    displayName: 'TF Destroy...'
