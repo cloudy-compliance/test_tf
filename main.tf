@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket = "tf-state-davy"
-    region = "us-west-2"
+    region = "us-west-1"
     key    = "state.tfstate"
   }
 
@@ -17,7 +17,7 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region  = "us-west-2"
+  region  = "us-west-1"
 }
 
 resource "aws_vpc" "vpc_app_server" {
@@ -31,7 +31,7 @@ resource "aws_vpc" "vpc_app_server" {
 resource "aws_subnet" "app_server_subnet" {
   vpc_id            = aws_vpc.vpc_app_server.id
   cidr_block        = "192.168.0.0/24"
-  availability_zone = "us-west-2a"
+  availability_zone = "us-west-1a"
 
   tags = {
     Name = "ExampleAppServerInstance"
